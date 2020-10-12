@@ -62,7 +62,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder>() {
         }
 
         companion object {
-            private val LAYOUT = R.layout.expansion_panel_recycler_cell
+            private val LAYOUT = R.layout.expansion_panel_recycler
             fun buildFor(viewGroup: ViewGroup): RecyclerHolder {
                 return RecyclerHolder(
                     LayoutInflater.from(viewGroup.context).inflate(
