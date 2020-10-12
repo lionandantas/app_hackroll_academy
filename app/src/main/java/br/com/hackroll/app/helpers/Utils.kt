@@ -14,6 +14,16 @@ class Utils {
             sectionSSlPinning.add(SubItem("TrustManager", false))
             sectionSSlPinning.add(SubItem("OkKTTPV3", true))
             sectionSSlPinning.add(SubItem("TrustKit", false))
+            sectionSSlPinning.add(SubItem("ITEM 1", false))
+            sectionSSlPinning.add(SubItem("ITEM 2", false))
+            sectionSSlPinning.add(SubItem("ITEM 3", false))
+            sectionSSlPinning.add(SubItem("ITEM 4", false))
+            sectionSSlPinning.add(SubItem("ITEM 5", false))
+            sectionSSlPinning.add(SubItem("ITEM 6", false))
+            sectionSSlPinning.add(SubItem("ITEM 7", false))
+            sectionSSlPinning.add(SubItem("ITEM 8", false))
+            sectionSSlPinning.add(SubItem("ITEM 9", false))
+            sectionSSlPinning.add(SubItem("ITEM 10", false))
             hackRollList.add(Item("SSL-Pinning", sectionSSlPinning))
 
 

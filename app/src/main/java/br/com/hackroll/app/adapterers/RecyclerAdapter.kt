@@ -55,6 +55,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder>() {
         fun bind(item: Item) {
             expansionLayout.collapse(false)
             headerTitle.text = item.heading
+            linearLayout_childItems.layoutParams.height = 125 * item.children.size
             total.text = "${item.children.count { item -> item.resolved }}/${item.children.size}"
             val lv = itemView.findViewById(R.id.listviews) as ListView
             lv.adapter = SubItemAdapter(context, item.children)
