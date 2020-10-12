@@ -5,10 +5,10 @@ import br.com.hackroll.app.model.SubItem
 
 
 class Utils {
-    companion object{
+    companion object {
         fun loadItems(): ArrayList<Item> {
 
-            val  hackRollList = ArrayList<Item>()
+            val hackRollList = ArrayList<Item>()
 
             val sectionSSlPinning: ArrayList<SubItem> = ArrayList()
             sectionSSlPinning.add(SubItem("TrustManager", false))

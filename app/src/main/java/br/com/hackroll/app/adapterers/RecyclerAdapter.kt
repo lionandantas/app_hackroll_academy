@@ -13,51 +13,64 @@ import br.com.hackroll.app.model.Item
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder>() {
+class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder>() {
     var list = ArrayList<Item>()
     private val expansionsCollection = ExpansionLayoutCollection()
 
-    init{
+    init {
         expansionsCollection.openOnlyOne(true)
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):RecyclerHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder {
         return RecyclerHolder.buildFor(parent)
     }
-    override fun onBindViewHolder(holder:RecyclerHolder, position:Int) {
+
+    override fun onBindViewHolder(holder: RecyclerHolder, position: Int) {
         holder.bind(list.get(position))
         expansionsCollection.add(holder.expansionLayout)
     }
-    fun setItems(items:ArrayList<Item>) {
+
+    fun setItems(items: ArrayList<Item>) {
         this.list.addAll(items)
         notifyDataSetChanged()
     }
-    class RecyclerHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+
+    class RecyclerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var expansionLayout: ExpansionLayout
             internal set
         var headerTitle: TextView
         var total: TextView
         var linearLayout_childItems: LinearLayout
         val context: Context
-        init{
+
+        init {
             expansionLayout = itemView.findViewById(R.id.expansionLayout)
             headerTitle = itemView.findViewById<TextView>(R.id.titleHeader)
             total = itemView.findViewById<TextView>(R.id.total)
-            linearLayout_childItems =  itemView.findViewById(R.id.ll_child_items)
+            linearLayout_childItems = itemView.findViewById(R.id.ll_child_items)
 
             context = itemView.context
         }
-        fun bind(item:Item) {
+
+        fun bind(item: Item) {
             expansionLayout.collapse(false)
             headerTitle.text = item.heading
-            total.text = "${item.children.count { item -> item.resolved}}/${item.children.size}"
+            total.text = "${item.children.count { item -> item.resolved }}/${item.children.size}"
             val lv = itemView.findViewById(R.id.listviews) as ListView
-            lv.adapter = SubItemAdapter(context,item.children)
+            lv.adapter = SubItemAdapter(context, item.children)
 
         }
+
         companion object {
             private val LAYOUT = R.layout.expansion_panel_recycler_cell
-            fun buildFor(viewGroup:ViewGroup):RecyclerHolder {
-                return RecyclerHolder(LayoutInflater.from(viewGroup.context).inflate(LAYOUT, viewGroup, false))
+            fun buildFor(viewGroup: ViewGroup): RecyclerHolder {
+                return RecyclerHolder(
+                    LayoutInflater.from(viewGroup.context).inflate(
+                        LAYOUT,
+                        viewGroup,
+                        false
+                    )
+                )
             }
         }
     }

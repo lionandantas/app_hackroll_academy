@@ -6,70 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <androidx.cardview.widget.CardView
+        android:id="@+id/ll_child_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll_child_items"
-        app:cardBackgroundColor="#C17D2D"
         android:layout_margin="0dp"
-        app:cardElevation="2dp"
         android:padding="10dp"
-        app:cardCornerRadius="0dp">
+        app:cardBackgroundColor="#C17D2D"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
+                android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="15dp"
                 android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_margin="10dp"
-                android:id="@+id/status"
                 android:maxHeight="80dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/brazao" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="1dp"
                     android:text="HACK N' ROLL ACADEMY"
                     android:textColor="#fff"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:padding="1dp"/>
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="horizontal">
-                   <TextView
-                       android:id="@+id/label"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="SSL Pinning Bypassme"
-                       android:layout_weight="1"
-                       android:textColor="#fff"
-                       android:textSize="18dp"
-                       android:textStyle="bold"
-                       />
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:adjustViewBounds="true"
-                       android:scaleType="fitCenter"
-                       android:layout_weight="1"
-                       android:maxHeight="30dp"
-                       android:src="@drawable/circle_ok" />
-               </LinearLayout>
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SSL Pinning Bypassme"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/fullStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:maxHeight="30dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/circle_ok" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -77,14 +82,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/ll_child_items"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/ll_child_items"
         android:orientation="vertical">
 
     </androidx.recyclerview.widget.RecyclerView>
-
 
 
 </RelativeLayout>

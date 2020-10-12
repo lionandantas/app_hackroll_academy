@@ -11,7 +11,7 @@ import br.com.hackroll.app.R
 import br.com.hackroll.app.model.SubItem
 
 
-class SubItemAdapter(context: Context,list:List<SubItem>) : BaseAdapter() {
+class SubItemAdapter(context: Context, list: List<SubItem>) : BaseAdapter() {
     var sList = ArrayList<SubItem>()
 
     private val mInflator: LayoutInflater = LayoutInflater.from(context)
@@ -45,26 +45,22 @@ class SubItemAdapter(context: Context,list:List<SubItem>) : BaseAdapter() {
         }
         var item = sList[position]
         vh.label.text = item.title
-        if(item.resolved)
+        if (item.resolved)
             vh.status.setImageResource(R.drawable.circle_ok)
         else
             vh.status.setImageResource(R.drawable.circle_error)
 
         return view
     }
-    fun setItems(items:List<SubItem>) {
+
+    fun setItems(items: List<SubItem>) {
         this.sList.addAll(items)
         notifyDataSetChanged()
     }
 
     private class ListRowHolder(row: View?) {
-        val label: TextView
-        val status: ImageView
-
-        init {
-            this.label = row?.findViewById(R.id.label) as TextView
-            this.status = row?.findViewById(R.id.status) as ImageView
-        }
+        val label: TextView = row?.findViewById(R.id.label) as TextView
+        val status: ImageView = row?.findViewById(R.id.status) as ImageView
     }
 }
 
